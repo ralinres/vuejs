@@ -11,9 +11,10 @@
     import Vue from 'vue'
     import Spinner from 'vue-spinkit'
     import {EventBus} from '../eventBus'
-    let wrapper = document.createElement('div');
 
-    let full = Vue.extend({
+   let container = document.createElement('div');
+
+    let loading = Vue.extend({
 
         template: `
   	          <div class="progress">
@@ -22,7 +23,7 @@
         components: {'Spinner': Spinner}
     })
 
-    let component = new full().$mount(wrapper)
+    let body = new loading().$mount(container)
 
 
     export default {
@@ -33,9 +34,9 @@
             alert() {
                 this.$swal({
 
-                    content: component.$el,
+                    content: body.$el,
                     text: this.titleModal,
-                    icon: "warning", /*puede ser la url*/
+                    icon: "warning", /*puede ser la url del icono*/
                     buttons: false,
                     dangerMode: true,
 
